@@ -35,6 +35,9 @@ crf = 28    # the output quality (0-51).  28 is supposed to be visually the same
 
 allowedcodecs = ['x264','h264']    # allowed cource codecs to convert
 skippedfiles = ['.jpg','.sub','.idx','.nfo','.tbn','.srt','.png']   # ignored files
+
+# any files smaller than this will be ignored (800MB)
+minimumvidsize = 800000000
 ```
 ---
 ### to run:
