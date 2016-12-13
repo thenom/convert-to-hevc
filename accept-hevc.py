@@ -18,13 +18,17 @@ if len(sys.argv) < 3:
 else:
     if sys.argv[2] == 'simulate':
         simulate = True
-    if sys.argv[2] == 'review':
+    elif sys.argv[2] == 'review':
         review = True
-    if sys.argv[2] == 'run':
+    elif sys.argv[2] == 'run':
         run = True
-    if sys.argv[2] == 'run_y':
+    elif sys.argv[2] == 'run_y':
         run = True
         runy = True
+    else:
+        print('Invalid command!\n')
+        print('simulate: review all the changes it will attempt\nreview: view all the new found converted videos\nrun: replace all the old videos with confirmation on each\nrun_y: replace all the old videos answering yes to confirmations]')
+        sys.exit(1)
 
 sourcepath = os.path.join(sys.argv[1],'**/*HEVC_CONV.mkv')
 sourcelist = glob.glob(sourcepath,recursive=True)

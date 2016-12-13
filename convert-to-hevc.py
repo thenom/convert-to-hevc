@@ -37,8 +37,8 @@ for videoarr in config.sourcevideos:
 
 
 
-    failmarker = os.path.join(os.path.dirname(video),'.' + sourcefile + '.failed-hevc')
-    completemarker = os.path.join(os.path.dirname(video),'.' + sourcefile + '.complete-hevc')
+    failmarker = os.path.join(os.path.dirname(sourcefilepath),'.' + sourcefile + '.failed-hevc')
+    completemarker = os.path.join(os.path.dirname(sourcefilepath),'.' + sourcefile + '.complete-hevc')
     if os.path.isfile(failmarker):
         print('File conversion failed in a previous attempt: %s' % video)
         processlog.write('File already failed conversion: %s\n' % video)
@@ -64,7 +64,7 @@ for videoarr in config.sourcevideos:
         sourcecodec = subprocess.check_output([config.ffprobe, '-select_streams', 'v:0', '-show_entries', 'stream=codec_name', '-of', 'default=noprint_wrappers=1:nokey=1', '-hide_banner', '-i', sourcefilepath])
         sourcecodec = sourcecodec.strip().decode()
         print('Source codec: %s' % sourcecodec)
-    except KeyboardInterupt:
+    except KeyboardInterrupt:
         sys.exit(1)
     except:
         sourcecodec = 'nonevideo'
