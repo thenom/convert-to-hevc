@@ -2,3 +2,4 @@ config.py
 .pyc
 processed.log
 config.py
+__pycache__
